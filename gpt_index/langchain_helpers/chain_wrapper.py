@@ -6,8 +6,8 @@ from typing import Any, Generator, Optional, Tuple
 
 import openai
 from langchain import Cohere, LLMChain, OpenAI
-from langchain.llms import AI21
-from langchain.llms.base import BaseLLM
+# from langchain.llms import AI21
+# from langchain.llms.base import BaseLLM
 
 from gpt_index.constants import MAX_CHUNK_SIZE, NUM_OUTPUTS
 from gpt_index.prompts.base import Prompt
