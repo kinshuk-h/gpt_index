@@ -30,7 +30,7 @@ class LLMMetadata:
     num_output: int = NUM_OUTPUTS
 
 
-def _get_llm_metadata(llm: BaseLLM) -> LLMMetadata:
+def _get_llm_metadata(llm) -> LLMMetadata:
     """Get LLM metadata from llm."""
     if isinstance(llm, OpenAI):
         return LLMMetadata(
@@ -65,7 +65,7 @@ class LLMPredictor:
     """
 
     def __init__(
-        self, llm: Optional[BaseLLM] = None, retry_on_throttling: bool = True
+        self, llm: Optional[Any] = None, retry_on_throttling: bool = True
     ) -> None:
         """Initialize params."""
         self._llm = llm or OpenAI(temperature=0, model_name="text-davinci-003")
