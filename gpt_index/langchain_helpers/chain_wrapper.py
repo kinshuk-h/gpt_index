@@ -32,19 +32,11 @@ class LLMMetadata:
 
 def _get_llm_metadata(llm: BaseLLM) -> LLMMetadata:
     """Get LLM metadata from llm."""
-    if not isinstance(llm, BaseLLM):
-        raise ValueError("llm must be an instance of langchain.llms.base.LLM")
     if isinstance(llm, OpenAI):
         return LLMMetadata(
             max_input_size=llm.modelname_to_contextsize(llm.model_name),
             num_output=llm.max_tokens,
         )
-    elif isinstance(llm, Cohere):
-        # TODO: figure out max input size for cohere
-        return LLMMetadata(num_output=llm.max_tokens)
-    elif isinstance(llm, AI21):
-        # TODO: figure out max input size for AI21
-        return LLMMetadata(num_output=llm.maxTokens)
     else:
         return LLMMetadata()
 
